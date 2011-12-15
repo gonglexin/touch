@@ -4,8 +4,8 @@ namespace :db do
     Rake::Task['db:reset'].invoke
     
     10.times do |n|
-      name = "Product_#{n}"
-      description = "#{name}=>description"
+      name = "Product_#{n + 1}"
+      description = "#{name}=>description,balbalbal"
       Product.create!(name: name,
                       description: description)
     end

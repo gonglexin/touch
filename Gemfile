@@ -13,6 +13,12 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 # upload files
 gem 'carrierwave'
 
+# handle images
+gem 'mini_magick'
+
+# pagination
+gem 'will_paginate', '~> 3.0'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
