@@ -6,6 +6,7 @@
   <% unless parent.nil? %>
   <li>
     <%= link_to parent.name, { :controller => 'categories', :action => "index", :id => parent } %>
+    <span class="divider">/<span>
   </li>
   <% end %>
 </ul>

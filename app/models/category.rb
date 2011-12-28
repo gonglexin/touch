@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
 
   has_many :products
 
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
   validates :parent_id, :presence => true
 
   def parent

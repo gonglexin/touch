@@ -25,14 +25,12 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def create
     @category = Category.new(params[:category])
-    puts "==>>>>>"
-    p params[:category]
-    p @category 
-    puts "==>>>>>"
 
     if @category.save
+      @parent = @category.parent
       redirect_to admin_category_path(@category), notice: 'Category was successfully created.'
     else
+      @parent = @category.parent
       render action: "new"
     end
   end
@@ -41,8 +39,10 @@ class Admin::CategoriesController < Admin::ApplicationController
     @category = Category.find(params[:id])
 
     if @category.update_attributes(params[:category])
+      @parent = @category.parent
       redirect_to admin_category_path(@category), notice: 'Category was successfully updated.'
     else
+      @parent = @category.parent
       render action: "edit"
     end
   end
