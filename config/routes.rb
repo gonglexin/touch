@@ -1,11 +1,11 @@
 Touch::Application.routes.draw do
   resources :products
+  root :to => 'pages#index'
+
   namespace :admin do
-    # Directs /admin/products/* to Admin::ProductsController
-    # (app/controllers/admin/products_controller.rb)
+    root :to => 'products#index'
     resources :products
     resources :categories
   end
 
-  root :to => 'pages#index'
 end
