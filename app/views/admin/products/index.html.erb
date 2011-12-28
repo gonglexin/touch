@@ -1,0 +1,19 @@
+<h1>Products</h1>
+
+
+<div class="span12">
+  <ul class="media-grid">
+    <% @products.each do |product| %>
+      <li>
+        <%# <h6><%= product.name %>
+        <%= link_to image_tag(product.image.thumb.url, :class => "thumbnail"), [:admin, product] %>
+        <%= link_to 'Edit', edit_admin_product_path(product) %>
+        <%= link_to 'Destroy', admin_product_path(product), confirm: 'Are you sure?', method: :delete %>
+      <li>
+    <% end %>
+  </ul>
+</div>
+
+<%= will_paginate @products %>
+
+<%= link_to 'New Product', new_admin_product_path %>

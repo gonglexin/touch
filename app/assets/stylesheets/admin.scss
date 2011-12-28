@@ -1,0 +1,11 @@
+/*
+ *= require application
+ *= require_self
+*/
+
+.container-fluid {
+  padding-top: 20px;
+}
+.container-fluid > .sidebar {
+  padding-top: 20px;
+}

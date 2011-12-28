@@ -3,7 +3,6 @@ module ApplicationHelper
     tree = '<ul>'
     categories = Category.where('parent_id == 1')
     categories.each do |c|
-      #tree << "<li><a href='#{products_path}/category_id=#{c.id}'>#{c.name}</a></li>"
       tree << "<li>#{link_to c.name, :controller => 'products', :action => 'index', :category => c.id}</li>"
       tree << append_child_categories(c) unless c.subcategories.nil?
     end

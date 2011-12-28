@@ -1,0 +1,23 @@
+<%= form_for([:admin,@product]) do |f| %>
+  <fieldset>
+    <legend></legend>
+  <%= render 'shared/error_messages', :target => @product %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= image_tag(@product.image_url) if @product.image? %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="well">
+    <%= f.submit :class=> 'btn primary' %>
+  </div>
+<% end %>
