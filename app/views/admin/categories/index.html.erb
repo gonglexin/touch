@@ -1,19 +1,23 @@
 <%= render 'shared/breadcrumb', :parent => @parent %>
 
-<table>
-  <tr>
-    <th>Category</th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= link_to_if category.parent.nil?, category.name, { :controller => 'categories', :action => "index", :id => category } %></td>
-    <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-    <td><%= link_to 'Destroy', admin_category_path(category), confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to_if category.parent.nil?, category.name, { :controller => 'categories', :action => "index", :id => category } %></td>
+        <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+        <td><%= link_to 'Destroy', admin_category_path(category), confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />

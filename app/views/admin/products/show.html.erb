@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <div class="alert-message success">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
 
 <p>
   <b>Name:</b>
