@@ -1,23 +1,44 @@
-<% unless notice.nil? %>
+<%= render 'shared/breadcrumb_product', :page => 'show' %>
+
+<% if notice %>
   <div class="alert-message success">
     <p id="notice"><%= notice %></p>
   </div>
 <% end %>
+<!-- TODO: style fix -->
+<div class="span16">
+  <div class="row">
+    <div class="span8">
+      <%= image_tag(@product.image_url) if @product.image? %>
+    </div>
+    <div class="span8">
+      <table class="bordered-table zebra-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">#</th>
+            <th>#</th>
+          </tr>
+        <thead>
+        <tbody>
+          <tr>
+            <td><b>Name</b></td>
+            <td><%= @product.name %></td>
+          </tr>
+          <tr>
+            <td><b>Category</b></td>
+            <td><%= @product.category.name %></td>
+          </tr>
+          <tr>
+            <td><b>Description</b></td>
+            <td style="width: 100px;"><%= @product.description %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-<p>
-  <b>Image:</b>
-  <%= image_tag(@product.image_url) if @product.image? %>
-</p>
-
-
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
+<div class="well">
+  <%= link_to 'Edit', edit_admin_product_path(@product) %> |
+  <%= link_to 'Back', admin_products_path %>
+</div>

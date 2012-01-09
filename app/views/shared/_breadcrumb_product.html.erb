@@ -1,0 +1,18 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to 'Products', admin_products_path %>
+    <span class="divider">/<span>
+  <li>
+  <li>
+    <% case page
+       when 'new'
+    %>
+      New product
+    <% when 'edit' %>
+      Editing product
+    <% when 'show' %>
+      Showing product
+    <% end %>
+    <span class="divider">/<span>
+  <li>
+</ul>
