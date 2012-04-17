@@ -6,14 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
-//= require bootstrap-twipsy
-//= require bootstrap-popover
-
-$(document).ready(function() {
-  $(".image_pop").each(function() {
-    $(this).popover({
-      html: true
-    });
-  });
-});
