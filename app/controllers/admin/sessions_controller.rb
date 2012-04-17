@@ -9,8 +9,7 @@ class Admin::SessionsController < Admin::ApplicationController
       session[:admin_id] = admin.id
       redirect_to admin_root_url, :notice => "Logged in!"
     else
-      flash.now.alert = "Invalid email or password"
-      render "new"
+      redirect_to admin_log_in_path, :notice => "Invalid email or password"
     end
   end
 

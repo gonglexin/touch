@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
       @products = Product.where(:category_id => categories.collect { |c| c.id })
                          .paginate(:page => params[:page], :per_page => 6)
     else
-      @products = Product.paginate(:page => params[:page], :per_page => 6)
+      @products = Product.page(params[:page]).per_page(6)
     end
 
     respond_to do |format|

@@ -21,6 +21,10 @@ module ApplicationHelper
 
     flash_messages.join("\n").html_safe
   end
+
+  def categories_selector(form)
+    form.select :category_id, Category.all.collect { |c| [c.name, c.id] if c.name != 'root' }
+  end
   
   private
     def append_child_categories(category)

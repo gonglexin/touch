@@ -1,6 +1,3 @@
-<h1>Editing admin</h1>
+<%= render 'shared/breadcrumb_title', :title => "Setting", :href => admin_setting_path %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', [:admin, @admin] %> |
-<%= link_to 'Back', admin_admins_path %>
