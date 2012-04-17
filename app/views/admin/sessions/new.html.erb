@@ -1,11 +1,23 @@
-<%= notice_message %>
-
-<h1>Log In</h1>
-<%= form_tag admin_sessions_path do -%>
-  <label for="email">Email</label>
-  <%= text_field_tag :email, params[:email] %>
-  <label for="password">Password</label>
-  <%= password_field_tag :password, params[:password] %>
-
-  <%= submit_tag "Login" %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" style="margin-left:30px;">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= value %>
+  </div>
 <% end %>
+
+<div class="login-form">
+  <h2>Log In</h2>
+  <%= form_tag admin_sessions_path do -%>
+    <fieldset>
+      <div class="clearfix">
+        <%= text_field_tag :email, params[:email], :placeholder => "Email" %>
+      </div>
+
+      <div class="clearfix">
+        <%= password_field_tag :password, params[:password], :placeholder => "Password" %>
+      </div>
+
+      <%= submit_tag "Login", :class => "btn btn-primary btn-large" %>
+    </fieldset>
+  <% end %>
+</div>

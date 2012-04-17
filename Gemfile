@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,7 +8,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 
 # style
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 
 # upload files
 gem 'carrierwave'
@@ -18,6 +18,7 @@ gem 'mini_magick'
 
 # pagination
 gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.

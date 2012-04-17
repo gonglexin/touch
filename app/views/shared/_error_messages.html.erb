@@ -1,11 +1,13 @@
 <% if target.errors.any? %>
-  <div class="alert-message block-message error">
-    <a class="close" href="#">*</a>
-    <p><strong><%= pluralize(target.errors.count, "error") %> prohibited this from being save:</strong></p>
-    <ul>
-      <% target.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+  <div id="error_explanation">
+    <div class="alert alert-error alert-block">
+      <a class="close" data-dismiss="alert">×</a>
+      <h4 class="alert-heading"><%= pluralize(target.errors.count, "error") %> prohibited this from being save:</h4>
+      <ul>
+        <% target.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>

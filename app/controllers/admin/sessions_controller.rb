@@ -7,9 +7,11 @@ class Admin::SessionsController < Admin::ApplicationController
     admin = Admin.find_by_email(params[:email])
     if admin && admin.authenticate(params[:password])
       session[:admin_id] = admin.id
-      redirect_to admin_root_url, :notice => "Logged in!"
+      flash[:success] = "Logged in!"
+      redirect_to admin_root_url
     else
-      redirect_to admin_log_in_path, :notice => "Invalid email or password"
+      flash[:error] = "Invalid email/password combination"
+      redirect_to admin_log_in_path
     end
   end
 
