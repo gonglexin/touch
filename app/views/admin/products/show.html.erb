@@ -1,12 +1,17 @@
 <%= render 'shared/breadcrumb_product', :page => 'show' %>
 
-<div class="row-fluid">
-  <%= image_tag(@product.image.thumb.url) if @product.image? %>
-</div>
-<br />
+<% if @product.image? %>
+  <div class="row-fluid">
+    <ul class="thumbnails">
+      <li class="thumbnail">
+        <%= image_tag(@product.image.thumb.url) %>
+      </li>
+    </ul>
+  </div>
+<% end %>
 <div class="row-fluid">
   <div class="span12">
-    <table class="table table-bordered table-striped">
+    <table class="table">
       <!-- 
       <thead>
         <tr>
@@ -26,7 +31,7 @@
         </tr>
         <tr>
           <td><b>Description</b></td>
-          <td><%= @product.description %></td>
+          <td><pre><%= @product.description %></pre></td>
         </tr>
       </tbody>
     </table>

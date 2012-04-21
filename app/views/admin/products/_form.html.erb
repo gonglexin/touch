@@ -1,49 +1,5 @@
-<%= form_for ([:admin, @product]), :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for ([:admin, @product]), :html => { :style => "width: 300px;"  } do |f| %>
   <%= render 'shared/error_messages', :target => @product %>
-  <!-- 
-  <table>
-    <tr>
-        <td>
-          <div class="control-group">
-            <%= f.label :name, :class => 'control-label' %>
-            <div class="controls">
-              <%= f.text_field :name, :class => 'text_field' %>
-            </div>
-          </div>
-        </td>
-        <td>
-          <div class="control-group">
-            <%= f.label :category, :class => 'control-label' %>
-            <div class="controls">
-              <%= categories_selector(f) %>
-            </div>
-          </div>
-        </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="control-group">
-          <%= f.label :description, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_area :description, :class => 'text_area' %>
-          </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div class="control-group">
-          <%= f.label :image, :class => 'control-label' %>
-          <%= image_tag(@product.image_url) if @product.image? %>
-          <div class="controls">
-      			<%= f.hidden_field :image_cache %>
-      			<%= f.file_field :image %>
-          </div>
-        </div>
-      </td>
-    </tr>
-  </table>
-  -->
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -52,7 +8,13 @@
   </div>
   <div class="control-group">
     <%= f.label :image, :class => 'control-label' %>
-    <%= image_tag(@product.image_url) if @product.image? %>
+    <% if @product.image? %>
+      <ul class="thumbnails">
+        <li class="thumbnail">
+          <%= image_tag(@product.image.thumb.url) %>
+        </li>
+      </ul>
+    <% end %>
     <div class="controls">
 			<%= f.hidden_field :image_cache %>
 			<%= f.file_field :image %>
@@ -67,11 +29,11 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
+      <%= f.text_area :description, :style => "width: 420px;", :cols => '100', :rows => 12, :class => 'text_area' %>
     </div>
   </div>
 
-  <div class="well">
+  <div>
     <%= f.submit nil, :class => 'btn' %>
   </div>
 <% end %>

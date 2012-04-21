@@ -2,3 +2,9 @@
  *= require application
  *= require_self
 */
+
+/* overide bootstrap css */
+/* remove the border of pre (product description) */
+pre {
+  border: 0;
+}
