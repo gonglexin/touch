@@ -1,23 +1,32 @@
 <%= form_for([:admin, @admin]) do |f| %>
   <%= render 'shared/error_messages', :target => @admin %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email, readonly: true %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field uneditable-input', :readonly => true %>
+      <p class="help-block">If you want to change your account email, please contact developer <%= link_to "@gonglexin", "mailto:gonglexin@gmail.com" %></p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :old_password %><br />
-    <%= f.password_field :old_password %>
+  <div class="control-group">
+    <%= f.label :old_password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :old_password %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password, "New Password" %><br />
-    <%= f.password_field :password %>
+  <div class="control-group">
+    <%= f.label :password, "New Password", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit :class=> 'btn btn-primary' %>
+  <div>
+    <%= f.submit :class=> 'btn' %>
   </div>
 <% end %>

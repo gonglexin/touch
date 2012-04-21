@@ -1,6 +1,10 @@
 <%= render 'shared/breadcrumb', :parent => @parent %>
 
-<table class="table table-bordered talbe-striped">
+<div class="clearfix">
+  <%= link_to 'New Category', new_admin_category_path(:parent => @parent), :class => "btn"  %>
+</div>
+<br />
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Category</th>
@@ -21,4 +25,4 @@
 
 <br />
 
-<%= link_to 'New Category', new_admin_category_path(:parent => @parent) %>
+<%= link_to 'New Category', new_admin_category_path(:parent => @parent), :class => "btn"  %>

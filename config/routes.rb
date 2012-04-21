@@ -3,8 +3,8 @@ Touch::Application.routes.draw do
   root :to => 'pages#index'
 
   namespace :admin do
-    match 'log_in' => 'sessions#new', :as => 'log_in'
-    match 'log_out' => 'sessions#destroy', :as => 'log_out'
+    match 'login' => 'sessions#new', :as => 'login'
+    match 'logout' => 'sessions#destroy', :as => 'logout'
     match 'setting' => 'admins#edit', :as => 'setting'
     root :to => 'products#index'
     resources :products
@@ -12,5 +12,4 @@ Touch::Application.routes.draw do
     resources :sessions
     resources :admins
   end
-
 end

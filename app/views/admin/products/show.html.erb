@@ -1,39 +1,39 @@
 <%= render 'shared/breadcrumb_product', :page => 'show' %>
 
-<!-- TODO: style fix -->
-<div class="span16">
-  <div class="row">
-    <div class="span8">
-      <%= image_tag(@product.image_url) if @product.image? %>
-    </div>
-    <div class="span8">
-      <table class="bordered-table zebra-striped">
-        <thead>
-          <tr>
-            <th style="width: 100px;">#</th>
-            <th>#</th>
-          </tr>
-        <thead>
-        <tbody>
-          <tr>
-            <td><b>Name</b></td>
-            <td><%= @product.name %></td>
-          </tr>
-          <tr>
-            <td><b>Category</b></td>
-            <td><%= @product.category.name %></td>
-          </tr>
-          <tr>
-            <td><b>Description</b></td>
-            <td style="width: 100px;"><%= @product.description %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="row-fluid">
+  <%= image_tag(@product.image.thumb.url) if @product.image? %>
+</div>
+<br />
+<div class="row-fluid">
+  <div class="span12">
+    <table class="table table-bordered table-striped">
+      <!-- 
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>#</th>
+        </tr>
+      <thead>
+      -->
+      <tbody>
+        <tr>
+          <td><b>Name</b></td>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <td><b>Category</b></td>
+          <td><%= @product.category.name %></td>
+        </tr>
+        <tr>
+          <td><b>Description</b></td>
+          <td><%= @product.description %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<div class="well">
-  <%= link_to 'Edit', edit_admin_product_path(@product) %> |
-  <%= link_to 'Back', admin_products_path %>
+<div>
+  <%= link_to 'Edit', edit_admin_product_path(@product), :class => "btn" %>
+  <%= link_to 'Back', admin_products_path, :class => "btn" %>
 </div>

@@ -1,7 +1,7 @@
 class Admin::SessionsController < Admin::ApplicationController
-  layout 'login'
-
   skip_before_filter :require_admin
+  
+  layout "login"
 
   def create
     admin = Admin.find_by_email(params[:email])
@@ -11,12 +11,12 @@ class Admin::SessionsController < Admin::ApplicationController
       redirect_to admin_root_url
     else
       flash[:error] = "Invalid email/password combination"
-      redirect_to admin_log_in_path
+      redirect_to admin_login_path
     end
   end
 
   def destroy
     reset_session
-    redirect_to admin_log_in_path, :notice => "Logged out!"
+    redirect_to admin_login_path, :notice => "Logged out!"
   end
 end

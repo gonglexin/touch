@@ -11,7 +11,7 @@
   </div>
 	<%= f.hidden_field :parent_id, :value => @parent.nil? ? 1 : @parent.id %>
   
-	<div class="form-actions">
-  	<%= f.submit :class=> 'btn primary' %>
+	<div>
+  	<%= f.submit :class=> 'btn' %>
 	</div>
 <% end %>

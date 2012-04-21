@@ -3,9 +3,9 @@ class Admin::CategoriesController < Admin::ApplicationController
   def index
     if (params[:id])
       @parent = Category.find(params[:id])
-      @categories = Category.find_all_by_parent_id(params[:id])
+      @categories = Category.find_all_by_parent_id(params[:id]).reverse
     else
-      @categories = Category.find_all_by_parent_id(1)
+      @categories = Category.find_all_by_parent_id(1).reverse
     end
   end
 
@@ -49,8 +49,8 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
+    @parent = @category.parent
     @category.destroy
-
     redirect_to admin_categories_url
   end
 

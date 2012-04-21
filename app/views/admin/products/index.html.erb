@@ -4,8 +4,11 @@
     <span class="divider">/<span>
   <li>
 </ul>
-
-<table class="table table-bordered talbe-striped">
+<div class="clearfix">
+  <%= link_to 'New Product', new_admin_product_path, :class => "btn" %>
+</div>
+<br />
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -30,4 +33,4 @@
 
 <%= will_paginate @products %>
 
-<%= link_to 'New Product', new_admin_product_path %>
+<%= link_to 'New Product', new_admin_product_path, :class => "btn" %>
