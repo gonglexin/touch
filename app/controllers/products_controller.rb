@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
+  layout 'products'
 
-  # GET /products
-  # GET /products.json
   def index
     if params[:category]
       category = Category.find(params[:category])
@@ -11,9 +10,9 @@ class ProductsController < ApplicationController
         categories << child_c
       end
       @products = Product.where(:category_id => categories.collect { |c| c.id })
-                         .paginate(:page => params[:page], :per_page => 6)
+                         .paginate(:page => params[:page], :per_page => 8)
     else
-      @products = Product.page(params[:page]).per_page(6)
+      @products = Product.page(params[:page]).per_page(8)
     end
 
     respond_to do |format|
@@ -22,8 +21,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1
-  # GET /products/1.json
   def show
     @product = Product.find(params[:id])
 

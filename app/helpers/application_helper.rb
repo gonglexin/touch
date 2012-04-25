@@ -1,36 +1,26 @@
 module ApplicationHelper
   def category_tree
-    tree = '<ul>'
+    tree = '<ul class="nav nav-list">'
     categories = Category.where('parent_id == 1')
+    tree << content_tag('li', link_to('All Products', products_path), :class => 'nav-header')
     categories.each do |c|
-      tree << "<li>#{link_to c.name, :controller => 'products', :action => 'index', :category => c.id}</li>"
+      #tree << "<li class='nav-header'>#{link_to c.name, :controller => 'products', :action => 'index', :category => c.id}</li>"
+      tree << content_tag('li', link_to(c.name, :controller => 'products', :action => 'index', :category => c.id), :class => 'nav-header')
       tree << append_child_categories(c) unless c.subcategories.nil?
     end
     tree << '</ul>'
     sanitize (tree)
   end
 
-  def notice_message
-    flash_messages = []
-
-    flash.each do |type, message|
-      type = :success if type == :notice
-      text = content_tag(:div, link_to("x", "#", :class => "close") + message, :class => "alert-message #{type}")
-      flash_messages << text if message
-    end
-
-    flash_messages.join("\n").html_safe
-  end
-
   def categories_selector(form)
     form.select :category_id, Category.all.collect { |c| [c.name, c.id] if c.name != 'root' }
   end
-  
+
   private
     def append_child_categories(category)
-      child_tree = '<ul>'
+      child_tree = '<ul class="nav nav-list">'
       category.subcategories.each do |c|
-        child_tree << "<li>#{c.name}</li>"
+        child_tree << content_tag('li', link_to(c.name, :controller => 'products', :action => 'index', :category => c.id))
       end
       child_tree << '</ul>'
     end

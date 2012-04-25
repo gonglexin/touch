@@ -1,5 +1,7 @@
 Touch::Application.routes.draw do
   resources :products
+  match 'about' => 'pages#about', :as => 'about'
+  match 'contact' => 'pages#contact', :as => 'contact'
   root :to => 'pages#index'
 
   namespace :admin do

@@ -1,7 +1,7 @@
 class Admin::SessionsController < Admin::ApplicationController
   skip_before_filter :require_admin
-  
-  layout "login"
+
+  layout 'login'
 
   def create
     admin = Admin.find_by_email(params[:email])
