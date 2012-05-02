@@ -6,7 +6,8 @@ class Admin::SessionsController < Admin::ApplicationController
   def create
     admin = Admin.find_by_email(params[:email])
     if admin && admin.authenticate(params[:password])
-      session[:admin_id] = admin.id
+      # TODO use SecureRandom instead of plain id
+      cookies.permanent[:remember_token] = admin.id
       flash[:success] = "Logged in!"
       redirect_to admin_root_url
     else
@@ -16,7 +17,7 @@ class Admin::SessionsController < Admin::ApplicationController
   end
 
   def destroy
-    reset_session
+    cookies.delete(:remember_token)
     redirect_to admin_login_path, :notice => "Logged out!"
   end
 end
