@@ -1,7 +1,7 @@
 class Admin::AdminsController < Admin::ApplicationController
 
   def edit
-    @admin = Admin.find(session[:admin_id])
+    @admin = Admin.find(1)
   end
 
   def update

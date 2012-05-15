@@ -1,7 +1,7 @@
 module ApplicationHelper
   def category_tree
     tree = '<ul class="nav nav-list">'
-    categories = Category.where('parent_id == 1')
+    categories = Category.where(:parent_id => 1)
     tree << content_tag('li', link_to('All Products', products_path), :class => 'nav-header active')
     categories.each do |c|
       tree << content_tag('li', link_to(c.name, :controller => 'products', :action => 'index', :category => c.id), :class => 'nav-header')
