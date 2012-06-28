@@ -16,6 +16,7 @@
 
 # Ignore other unneeded files
 /public/uploads/*
+/config/database.yml
 doc/
 *.swp
 .DS_Store
