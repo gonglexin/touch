@@ -10,7 +10,7 @@
         <%= link_to image_tag(product.image_url()), product %>
         <div class="carousel-caption">
           <h4><%= product.name %></h4>
-          <p><%= product.description %></p>
+          <p><%= simple_format product.description %></p>
           <p><%= link_to 'All Products', products_path, :class => 'btn btn-primary' %></p>
         </div>
       </div>
