@@ -1,8 +1,4 @@
 Touch::Application.routes.draw do
-  get "contents/edit"
-
-  get "content/edit"
-
   resources :products
   match 'about' => 'pages#about', :as => 'about'
   match 'contact' => 'pages#contact', :as => 'contact'
