@@ -1,7 +1,7 @@
 class Admin::SessionsController < Admin::ApplicationController
-  skip_before_filter :require_admin
-
   layout 'login'
+
+  skip_before_filter :require_admin
 
   def new
     if cookies[:remember_token]

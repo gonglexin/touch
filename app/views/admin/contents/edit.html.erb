@@ -1,0 +1,16 @@
+<%= render 'shared/breadcrumb_title', :title => @content.page_name.capitalize, :href => @content.page_name == 'about'? admin_about_path : admin_contact_path %>
+
+<%= form_for([:admin, @content]) do |f| %>
+  <%= render 'shared/error_messages', :target => @content %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_area :body, :style => "min-width:500px; max-width: 800px;", :cols => '100', :rows => 12, :class => 'text_area texteditor' %>
+    </div>
+  </div>
+	<%= f.hidden_field :page_name, :value => @content.page_name %>
+
+	<div>
+  	<%= f.submit :class=> 'btn' %>
+	</div>
+<% end %>

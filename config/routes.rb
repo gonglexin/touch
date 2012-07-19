@@ -1,4 +1,8 @@
 Touch::Application.routes.draw do
+  get "contents/edit"
+
+  get "content/edit"
+
   resources :products
   match 'about' => 'pages#about', :as => 'about'
   match 'contact' => 'pages#contact', :as => 'contact'
@@ -8,10 +12,13 @@ Touch::Application.routes.draw do
     match 'login' => 'sessions#new', :as => 'login'
     match 'logout' => 'sessions#destroy', :as => 'logout'
     match 'setting' => 'admins#edit', :as => 'setting'
+    match 'about' => 'contents#about', :as => 'about'
+    match 'contact' => 'contents#contact', :as => 'contact'
     root :to => 'products#index'
     resources :products
     resources :categories
     resources :sessions
     resources :admins
+    resources :contents
   end
 end

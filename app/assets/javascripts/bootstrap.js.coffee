@@ -3,3 +3,4 @@ jQuery ->
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
   $('.carousel').carousel()
+  $('.texteditor').wysihtml5()
