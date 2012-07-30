@@ -1,4 +1,5 @@
 class Admin::ContentsController < Admin::ApplicationController
+  layout 'admin'
 
   def about
     @content = Content.where(:page_name => 'about')[0]

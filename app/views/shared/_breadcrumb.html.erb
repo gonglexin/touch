@@ -3,7 +3,7 @@
     <%= link_to 'root', admin_categories_path %>
     <span class="divider">/<span>
   <li>
-  <% unless parent.nil? %>
+  <% if parent %>
   <li>
     <%= link_to parent.name, { :controller => 'categories', :action => "index", :id => parent } %>
     <span class="divider">/<span>

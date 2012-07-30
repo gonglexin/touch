@@ -1,4 +1,5 @@
 class Admin::ProductsController < Admin::ApplicationController
+  layout 'admin'
 
   def index
     @products = Product.page(params[:page]).per_page(5)

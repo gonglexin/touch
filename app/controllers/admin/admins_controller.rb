@@ -1,4 +1,5 @@
 class Admin::AdminsController < Admin::ApplicationController
+  layout 'admin'
 
   def edit
     @admin = Admin.find(1)

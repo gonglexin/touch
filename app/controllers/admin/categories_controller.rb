@@ -1,4 +1,5 @@
 class Admin::CategoriesController < Admin::ApplicationController
+  layout 'admin'
 
   def index
     if (params[:id])
