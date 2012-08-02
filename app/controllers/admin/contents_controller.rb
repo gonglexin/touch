@@ -2,12 +2,12 @@ class Admin::ContentsController < Admin::ApplicationController
   layout 'admin'
 
   def about
-    @content = Content.where(:page_name => 'about')[0]
+    @content = Content.find_by_page_name('about')
     render 'edit'
   end
 
   def contact
-    @content = Content.where(:page_name => 'contact')[0]
+    @content = Content.find_by_page_name('contact')
     render 'edit'
   end
 
