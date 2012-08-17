@@ -10,10 +10,10 @@
       <%= link_to "Just Elec", root_path, class: 'brand' %>
       <div class="nav-collapse">
         <ul class="nav">
-          <%= content_tag('li', link_to("Home", root_path), :class => (controller_name == 'pages' && action_name == 'index' ? 'active' : nil)) %>
-          <%= content_tag('li', link_to("Products", products_path), :class => (controller_name == 'products' ? 'active' : nil)) %>
-          <%= content_tag('li', link_to("Contact", contact_path), :class => (controller_name == 'pages' && action_name == 'contact' ? 'active' : nil)) %>
-          <%= content_tag('li', link_to("About", about_path), :class => (controller_name == 'pages' && action_name == 'about' ? 'active' : nil)) %>
+          <%= content_tag('li', link_to("Home", root_path), :class => ('active' if current_page?(controller: 'pages', action: 'index'))) %>
+          <%= content_tag('li', link_to("Products", products_path), :class => ('active' if current_page?(controller: 'products'))) %>
+          <%= content_tag('li', link_to("Contact", contact_path), :class => ('active' if current_page?(action: 'contact'))) %>
+          <%= content_tag('li', link_to("About", about_path), :class => ('active' if current_page?(action: 'about'))) %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
