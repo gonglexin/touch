@@ -2,15 +2,11 @@
   <!-- Carousel items -->
   <div class="carousel-inner">
     <% @products.each_with_index do |product, index| %>
-      <% if index == 0 %>
-        <div class="active item">
-      <% else %>
-        <div class="item">
-      <% end %>
-        <%= link_to image_tag(product.image_url()), product %>
+      <div class="item <%= 'active' if index == 0 %>">
+        <%= link_to image_tag(product.image_url), product %>
         <div class="carousel-caption">
           <h4><%= product.name %></h4>
-          <p><%= simple_format product.description %></p>
+          <p><%= product.description.split("\n").first %>&nbsp;<%= link_to 'More detail', product %></p>
           <p><%= link_to 'All Products', products_path, :class => 'btn btn-primary' %></p>
         </div>
       </div>
