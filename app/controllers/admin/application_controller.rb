@@ -1,10 +1,13 @@
 class Admin::ApplicationController < ApplicationController
+  include SessionsHelper
+
   layout 'admin'
   before_filter :require_admin
 
   def require_admin
-    unless Admin.find_by_id(cookies[:remember_token])
+    unless signed_in?
       redirect_to admin_login_path, notice: "Please login in"
     end
   end
+
 end

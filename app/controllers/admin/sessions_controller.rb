@@ -4,16 +4,13 @@ class Admin::SessionsController < Admin::ApplicationController
   skip_before_filter :require_admin
 
   def new
-    if cookies[:remember_token]
-      redirect_to admin_root_url
-    end
+    redirect_to admin_root_url if signed_in?
   end
 
   def create
     admin = Admin.find_by_email(params[:email])
     if admin && admin.authenticate(params[:password])
-      # TODO use SecureRandom instead of plain id
-      cookies.permanent[:remember_token] = admin.id
+      sign_in admin
       flash[:success] = "Logged in!"
       redirect_to admin_root_url
     else
@@ -23,7 +20,7 @@ class Admin::SessionsController < Admin::ApplicationController
   end
 
   def destroy
-    cookies.delete(:remember_token)
+    sign_out
     redirect_to admin_login_path, :notice => "Logged out!"
   end
 end

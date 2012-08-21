@@ -2,7 +2,7 @@ class Admin::AdminsController < Admin::ApplicationController
   layout 'admin'
 
   def edit
-    @admin = Admin.find(1)
+    @admin = current_user
   end
 
   def update
