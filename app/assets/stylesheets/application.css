@@ -7,3 +7,6 @@
  *= require bootstrap_and_overrides
 */
 
+.nav > li > a.active {
+  background-color: #eeeeee;
+}

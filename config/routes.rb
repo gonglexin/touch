@@ -8,11 +8,11 @@ Touch::Application.routes.draw do
   namespace :admin do
     root :to => 'products#index'
 
-    get 'login'   => 'sessions#new',     :as => 'login'
-    get 'logout'  => 'sessions#destroy', :as => 'logout'
-    get 'about'   => 'contents#about',   :as => 'about'
-    get 'contact' => 'contents#contact', :as => 'contact'
-    get 'setting' => 'admins#edit',      :as => 'setting'
+    get    'login'   => 'sessions#new',     :as => 'login'
+    get    'about'   => 'contents#about',   :as => 'about'
+    get    'contact' => 'contents#contact', :as => 'contact'
+    get    'setting' => 'admins#edit',      :as => 'setting'
+    delete 'logout'  => 'sessions#destroy', :as => 'logout'
 
     resources :products
     resources :categories

@@ -27,7 +27,7 @@
               <%= link_to "Home", root_path, :target => '_blank' %>
             </li>
             <li>
-              <%= link_to raw("#{content_tag(:span, 'Log Out', :class => 'label label-important')}"), admin_logout_path %>
+              <%= link_to raw("#{content_tag(:span, 'Log Out', :class => 'label label-important')}"), admin_logout_path, :method => :delete %>
             </li>
           </ul>
           <!--
