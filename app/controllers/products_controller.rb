@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
       category.subcategories.each do |child_c|
         categories << child_c
       end
-      @products = Product.where(:category_id => categories.collect { |c| c.id })
+      @products = Product.where(:category_id => categories.collect(&:id))
                          .page(params[:page]).per_page(8)
     else
       @products = Product.page(params[:page]).per_page(8)
