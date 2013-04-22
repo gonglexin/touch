@@ -13,7 +13,7 @@ class Admin::ContentsController < Admin::ApplicationController
 
   def update
     @content = Content.find(params[:id])
-    if @content.update_attributes(params[:content])
+    if @content.update(params.require(:content).permit(:page_name, :body))
       if @content.page_name == 'about'
         redirect_to admin_about_path, :notice => 'Content was successfully updated.'
       else

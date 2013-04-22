@@ -1,5 +1,6 @@
 class Admin::CategoriesController < Admin::ApplicationController
   layout 'admin'
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
     if (params[:id])
@@ -20,12 +21,11 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
     @parent = @category.parent
   end
 
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new(category_params)
 
     if @category.save
       @parent = @category.parent
@@ -37,9 +37,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
-
-    if @category.update_attributes(params[:category])
+    if @category.update(category_params)
       @parent = @category.parent
       redirect_to admin_category_path(@category), notice: 'Category was successfully updated.'
     else
@@ -49,10 +47,20 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @parent = @category.parent
     @category.destroy
     redirect_to admin_categories_url
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_category
+      @category = Category.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def category_params
+      params.require(:category).permit(:name, :parent, :parent_id)
+    end
 
 end

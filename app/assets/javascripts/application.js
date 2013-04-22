@@ -7,6 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require wysihtml5
+//= require turbolinks
 //= require bootstrap-wysihtml5
 //= require_tree .

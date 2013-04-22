@@ -5,7 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   # use GraphicsMagick to handle images
-  #MiniMagick.processor = :gm
+  MiniMagick.processor = :gm
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
